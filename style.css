@@ -32,6 +32,10 @@ h4{
     font-size: 2.6rem;
 }
 
+.align-text{
+    text-align: center;
+}
+
 .gradient-color{
     background-image: linear-gradient(to right, #6a93e4 0%, #66c0ea 51%, #6a93e4 100%);    
     -webkit-background-clip: text;
@@ -511,6 +515,12 @@ background-color: white;    border-radius: 30px;
 footer{
     height: 40rem;
     background-color: #330033;
+}
+
+/**** ---- PRODUCT PAGE ---- ****/
+
+.product-container{
+    background-color: red;
 }
 
 /*TEXT ROTATOR 

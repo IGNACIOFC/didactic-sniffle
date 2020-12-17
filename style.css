@@ -38,7 +38,9 @@ h4{
 
     -webkit-text-fill-color: transparent;
 }
-/* HEADER */
+/***** HEADER ******/
+
+
 .header-bg{
     position: relative;
     background-color: #330033;
@@ -79,25 +81,109 @@ h4{
     justify-content: space-between;
 }
 
+
+/* NAVBAR */
 .logo svg{
     fill: white;
 }
 
-.menu ul{
+nav ul{
     display: flex;
     align-items: center;
-    list-style:none;
+    list-style: none;
 }
-.menu ul a{
+nav ul a{
     text-decoration: none;
     color: white;
     margin-right: 3rem;
     font-size: 2.2rem;
+    letter-spacing: 3px;
 }
-.menu ul a:nth-last-of-type(4){
+nav ul a:nth-last-of-type(4){
     margin-right: 0;
 }
 
+.burguer{
+    display: none;
+    cursor: pointer;
+}
+
+.burguer div {
+    width: 3rem;
+    height: 0.5rem;
+    background-color: white;
+    margin: 0.7rem;
+    transition: all 0.3s ease;
+}
+
+
+
+@media screen and (max-width: 830px) {
+    .header-container{
+        position: relative;
+    }
+    h1{
+        font-size: 3.5rem;
+        margin-bottom: 10rem;
+    }
+
+    body{
+        overflow-x: hidden;
+    }
+    nav ul {
+        position: absolute;
+        right: 0px;
+        height: 80vh;
+        top: 10vh;
+        background-color:#330033;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        width: 100%;
+        z-index: 1;
+        transform: translateX(100%);
+        transition: transform 0.5s ease-in;
+    }
+
+    nav ul li {
+        opacity: 0;
+    }
+
+    .burguer{
+        display: block;
+        position: sticky;
+    }
+}
+
+.nav-active{
+    transform: translateX(0%);
+}
+
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to{
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
+
+.toggle .line1{
+    transform: rotate(-45deg) translate(-0.7rem, 1rem);
+}
+
+.toggle .line2{
+    opacity: 0;
+}
+
+.toggle .line3{
+    transform: rotate(45deg) translate(-0.7rem, -1rem);
+}
+
+/* HERO */
 .hero{
     width: 100%;
     height: 100%;
@@ -149,8 +235,9 @@ background-color: white;    border-radius: 30px;
     background-color: white;
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
-    margin: 0 auto;
+    margin: 0 1rem;
     max-width: 900px;
     border-radius: 2rem;
     padding: 2rem;
@@ -168,7 +255,14 @@ background-color: white;    border-radius: 30px;
     justify-content: center;
     flex-wrap: wrap;
 }
-/**** SERVICES ****/
+
+@media (min-width: 830px) {
+    .experience-section{
+        margin: 0 auto;
+    }
+    
+}
+/**** ----- Main Section SERVICES ----- ****/
 .services-bg{
     background-image: url(img/clouds_banner_long.jpg);
     background-position: center;
@@ -178,26 +272,36 @@ background-color: white;    border-radius: 30px;
 
 .services{
     display: flex;
-    justify-content: space-evenly;
+    flex-direction: column;
     flex-wrap: wrap;
-    margin-bottom: 5rem;
+    margin-top: 5rem;
 
 }
 
 .service{
-    text-align: center;
     border-radius: 2rem;
     box-shadow: rgba(100, 100, 111, 0.3) 0px 7px 29px 0px;
     height: 45rem;
     display: flex;
-    flex-basis: calc(33.3% - 2.5rem);
     flex-direction: column;
     justify-content: space-between;
+    text-align: center;
     background-color: white;
     border: 0.5px solid lightgrey;
+    margin: 2rem 2rem;
 }
 .service *{
     margin: 0 2rem;
+}
+
+@media (min-width: 830px) {
+    .services{
+        flex-direction: row;
+        flex-wrap: nowrap;
+    }
+    .service{
+        flex-basis: calc(33% - 2rem);
+    }
 }
 
 .service h4{
@@ -234,6 +338,181 @@ background-color: white;    border-radius: 30px;
     text-decoration: none;
     color: white;
 }
+
+
+/***** ----- FEATURES SECTION ------ *******/
+
+.feature-bg{
+    color: white;
+    background-color: #330033;
+}
+.feature-container{
+    padding: 5rem 0 2rem 0;
+    margin: 15rem 0 0 0;
+}
+.feature{
+    text-align: center;
+    margin-bottom: 5rem;
+}
+.feature-title{
+    text-align: center;
+}
+.feature h4{
+    margin: 0;
+}
+.feature p{
+    margin-top: 0;
+}
+
+.feature-img{
+    text-align: center;
+}
+
+.custom-shape-divider-bottom-1608214247 {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+}
+
+.custom-shape-divider-bottom-1608214247 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 141px;
+}
+
+.custom-shape-divider-bottom-1608214247 .shape-fill {
+    fill: #F6F9FA;
+}
+@media (min-width: 830px) {
+    .feature-container{
+        padding: 5rem 0 2rem 0;
+        margin: 15rem 0 0 0;
+    }
+    
+    .feature-section{
+        margin: 2rem 2rem;
+        display: flex;
+        width: 100%;
+        justify-content: space-around;
+    }
+    .feature{
+        text-align: start;
+    }
+    .feature-img{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+/**** ---- Enterprise Section ---- ****/
+
+.enterprise-bg{
+    color: black;
+    background-color: #F6F9FA;
+}
+
+.enterprise-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.enterprise-container h4{
+    margin: 5rem 0 0 0;
+    padding-top: 5rem;
+    text-align: center;
+}
+
+.enterprise-container p{
+    text-align: center;
+}
+
+.enterprise-btn{
+    padding: 2rem 5rem;
+    border: 1px solid #D61C1C;
+    border-radius: 1rem;
+    margin: 5rem 0;
+
+}
+
+.enterprise-btn a{
+    text-decoration: none;
+    color: #D61C1C;
+    font-size: 2rem;
+}
+
+.custom-shape-divider-bottom-1608215932 {
+    position: relative;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+}
+
+.custom-shape-divider-bottom-1608215932 svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 192px;
+}
+
+.custom-shape-divider-bottom-1608215932 .shape-fill {
+    fill: #FFFFFF;
+}
+
+/**** ---- JOIN US Section ---- ****/
+
+.join-us-bg{
+    color: black;
+    background-color: #ffff;
+}
+
+.join-us-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0 20rem 0;
+}
+
+.join-us-container h4{
+    margin: 5rem 0 0 0;
+    padding-top: 5rem;
+    text-align: center;
+}
+
+.join-us-container p{
+    text-align: center;
+}
+
+.join-us-btn{
+    padding: 2rem 5rem;
+    border: 1px solid #3C4759;
+    border-radius: 1rem;
+    margin: 5rem 5rem;
+}
+
+.join-us-btn a{
+    text-decoration: none;
+    color: #3C4759;
+    font-size: 2rem;
+}
+
+/**** ---- FOOTER ---- ****/
+
+footer{
+    height: 40rem;
+    background-color: #330033;
+}
+
 /*TEXT ROTATOR 
 
 .text {

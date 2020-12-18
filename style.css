@@ -1,3 +1,10 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
 html{
     font-size: 62.5%;
 }
@@ -348,7 +355,7 @@ background-color: white;    border-radius: 30px;
 
 .feature-bg{
     color: white;
-    background-color: #330033;
+    background-color: #092540;
 }
 .feature-container{
     padding: 5rem 0 2rem 0;
@@ -372,26 +379,7 @@ background-color: white;    border-radius: 30px;
     text-align: center;
 }
 
-.custom-shape-divider-bottom-1608214247 {
-    position: relative;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    overflow: hidden;
-    line-height: 0;
-    transform: rotate(180deg);
-}
 
-.custom-shape-divider-bottom-1608214247 svg {
-    position: relative;
-    display: block;
-    width: calc(100% + 1.3px);
-    height: 141px;
-}
-
-.custom-shape-divider-bottom-1608214247 .shape-fill {
-    fill: #F6F9FA;
-}
 @media (min-width: 830px) {
     .feature-container{
         padding: 5rem 0 2rem 0;

@@ -17,9 +17,12 @@ document.querySelectorAll(".drop-zone__input").forEach(inputElement => {
 */
 const progressBar = document.querySelector(".progress");
 const signIn = document.getElementById("signIn");
-const checkout = document.getElementById("chekout");
+const checkout = document.getElementById("checkout");
 const dropInput = document.querySelectorAll(".drop-zone__input");
-
+const checkoutBtn = document.getElementById("checkoutBtn");
+const payBtn = document.getElementById("payBtn");
+const price = document.getElementById("price");
+const videoDuration = document.getElementById("videoDuration");
 document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
     const dropZoneElement = inputElement.closest(".drop-zone");
 
@@ -31,7 +34,7 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
         if (inputElement.files.length) {
             updateThumbnail(dropZoneElement, inputElement.files[0]);
             updateProgressBar(progressBar, 33);
-            signIn.classList.toggle("h-hide");
+            signIn.classList.remove("h-hide");
             /*setInterval(function() { signIn.classList.remove("none"); }, 1000);*/
         }
     });
@@ -53,6 +56,8 @@ document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
         if (e.dataTransfer.files.length) {
             inputElement.files = e.dataTransfer.files;
             updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+            updateProgressBar(progressBar, 33);
+            signIn.classList.remove("h-hide");
         }
         
         dropZoneElement.classList.remove("drop-zone--over");
@@ -112,7 +117,25 @@ function updateProgressBar(progressBar, value) {
 }
 
 /* Order */
+checkoutBtn.addEventListener("click", function () {
+    signIn.classList.add("h-hide");
+    checkout.classList.remove("h-hide");
+    updateProgressBar(progressBar, 66)
+});
 
+payBtn.addEventListener("click", function () {
+    signIn.classList.add("h-hide");
+    checkout.classList.add("h-hide");
+    updateProgressBar(progressBar, 100)
+});
+
+videoDuration.addEventListener("input", function (e) {
+    price.innerHTML = e.target.value * 1.5 + "$";
+})
+
+console.log(videoDuration);
+console.log(price.content)
+price.innerHTML = videoDuration.value;
 
 
 

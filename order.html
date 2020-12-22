@@ -52,7 +52,7 @@
                             </div>
                             <div class="input_item video-time">
                                 <p>How long is your video?</p>
-                                <input type="number" placeholder="10min" data-mask=>
+                                <input type="number" placeholder="10min" id="videoDuration" data-mask=>
                             </div>
 
                             <div class="input_item video-time">
@@ -61,13 +61,13 @@
                             </div>
                                 
 
-                            <div class="btn">
-                                <a href="#">PAY</a>
+                            <div class="btn" id="checkoutBtn">
+                                <a href="#">checkout</a>
                             </div>
                         </div>
                     </div>
 
-                    <div class="wrapper none" id="checkout">
+                    <div class="wrapper h-hide" id="checkout">
                         <div class="title">Checkout form</div>
                         <div class="checkout_form">
                             <div class="input_item">
@@ -84,17 +84,13 @@
                                     <input type="text" placeholder="* * *" data-mask="0 0 0">
                                 </div>
                             </div>
-                            <div class="btn">
-                                <a href="#">proceed</a>
+                            <div class="btn" id="payBtn">
+                                <a href="#">pay</a>
                             </div>
                         </div>
                     </div>
                 </form>
-                <div class="upload-files">
-                    <div class="icon-upload-files"></div>
-                    <p>Share a link to a public web adress</p>
-                    <button class="join-us-btn">PASTE A URL</button>
-                </div>
+                
 
                 <p>Secure and Encrypted</p>
                 

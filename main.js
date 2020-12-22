@@ -1,9 +1,129 @@
+/* ORDER DROP INPUT 
+
+document.querySelectorAll(".drop-zone__input").forEach(inputElement => {
+    const dropZoneElement = inputElement.closest(".drop-zone");
+
+    dropZoneElement.addEventListener("dragover", e => {
+        dropZoneElement.classList.add("drop-zone--over");
+    });
+
+    ["dragleave", "dragend"].foreach(type => {
+        dropZoneElement.addEventListener(type, e => {
+            dropZoneElement.classList.remove("drop-zone--over");
+        });
+    });
+});
+
+*/
+const progressBar = document.querySelector(".progress");
+const signIn = document.getElementById("signIn");
+const checkout = document.getElementById("chekout");
+const dropInput = document.querySelectorAll(".drop-zone__input");
+
+document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
+    const dropZoneElement = inputElement.closest(".drop-zone");
+
+    dropZoneElement.addEventListener("click", (e) => {
+        inputElement.click();
+    });
+
+    inputElement.addEventListener("change", (e) => {
+        if (inputElement.files.length) {
+            updateThumbnail(dropZoneElement, inputElement.files[0]);
+            updateProgressBar(progressBar, 33);
+            signIn.classList.toggle("h-hide");
+            /*setInterval(function() { signIn.classList.remove("none"); }, 1000);*/
+        }
+    });
+
+    dropZoneElement.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        dropZoneElement.classList.add("drop-zone--over");
+    });
+
+    ["dragleave", "dragend"].forEach((type) => {
+        dropZoneElement.addEventListener(type, (e) => {
+            dropZoneElement.classList.remove("drop-zone--over");
+        });
+    });
+
+    dropZoneElement.addEventListener("drop", (e) => {
+        e.preventDefault();
+
+        if (e.dataTransfer.files.length) {
+            inputElement.files = e.dataTransfer.files;
+            updateThumbnail(dropZoneElement, e.dataTransfer.files[0]);
+        }
+        
+        dropZoneElement.classList.remove("drop-zone--over");
+    });
+    
+    
+});
+
+
+
+
+
+
+/**
+   * Updates the thumbnail on a drop zone element.
+   *
+   * @param {HTMLElement} dropZoneElement
+   * @param {File} file
+   */
+function updateThumbnail(dropZoneElement, file) {
+    let thumbnailElement = dropZoneElement.querySelector(".drop-zone__thumb");
+
+    // First time - remove the prompt
+    if (dropZoneElement.querySelector(".drop-zone__prompt")) {
+        dropZoneElement.querySelector(".drop-zone__prompt").remove();
+    }
+
+    // First time - there is no thumbnail element, so lets create it
+    if (!thumbnailElement) {
+        thumbnailElement = document.createElement("div");
+        thumbnailElement.classList.add("drop-zone__thumb");
+        dropZoneElement.appendChild(thumbnailElement);
+    }
+
+    thumbnailElement.dataset.label = file.name;
+
+    // Show thumbnail for image files
+    if (file.type.startsWith("image/")) {
+        const reader = new FileReader();
+
+        reader.readAsDataURL(file);
+        reader.onload = () => {
+            thumbnailElement.style.backgroundImage = `url('${reader.result}')`;
+        };
+    } else {
+        thumbnailElement.style.backgroundImage = null;
+    }
+}
+
+
+/* Progress Bar */
+
+function updateProgressBar(progressBar, value) {
+    value = Math.round(value);
+    progressBar.querySelector(".progress__fill").style.width = `${value}%`;
+    progressBar.querySelector(".progress__text").textContent = `${value}%`;
+}
+
+/* Order */
+
+
+
+
+/* Burguer Menu */
+
 const navSlide = () => {
     const burguer = document.querySelector(".burguer");
     const nav = document.querySelector("nav ul");
     const navLinks = document.querySelectorAll(".li-nav");
     
-    burguer.addEventListener("click", ()=>{
+    burguer.addEventListener("click", () => {
 
         // Toggle Nav
         nav.classList.toggle("nav-active");
@@ -26,6 +146,9 @@ const navSlide = () => {
 }
 
 navSlide();
+
+
+
 
 
 

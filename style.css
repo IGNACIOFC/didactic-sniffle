@@ -7,6 +7,7 @@
 
 html{
     font-size: 62.5%;
+    scroll-behavior: smooth;
 }
 body {
     font-family: 'Poppins', sans-serif;
@@ -332,7 +333,12 @@ background-color: white;    border-radius: 30px;
 .price-p{
     font-weight: 600;
 }
-
+.service-text p{
+    margin-bottom: 2rem;
+}
+.service-icon{
+    font-size: 5rem;
+}
 
 .blue-bg{
     background-color:#330033;

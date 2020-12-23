@@ -123,12 +123,14 @@ function updateProgressBar(progressBar, value) {
 /* Order */
 
 signInForm.addEventListener("submit", function(e) {
+    event.preventDefault()
     signIn.classList.add("h-hide");
     checkout.classList.remove("h-hide");
-    updateProgressBar(progressBar, 66)
+    updateProgressBar(progressBar, 66);
 });
 
 myForm.addEventListener("submit", function(e){
+        event.preventDefault()
         const orderReceived = document.createElement("h3");
         orderReceived.append("Order Received 🎉");
         orderReceived.classList.add("align-text");
@@ -142,21 +144,14 @@ myForm.addEventListener("submit", function(e){
 
 
 
-checkoutBtn.addEventListener("click", function () {
-    
-});
 
-payBtn.addEventListener("click", function () {
-    
-});
 
 videoDuration.addEventListener("input", function (e) {
     price.innerHTML = e.target.value * 1.5 + "$";
 })
 
-console.log(videoDuration);
-console.log(price.content)
-price.innerHTML = videoDuration.value;
+
+
 
 
 
@@ -167,7 +162,7 @@ const navSlide = () => {
     const nav = document.querySelector("nav ul");
     const navLinks = document.querySelectorAll(".li-nav");
     
-    burguer.addEventListener("click", () => {
+    burguer.addEventListener("click", function () {
 
         // Toggle Nav
         nav.classList.toggle("nav-active");

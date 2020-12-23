@@ -706,18 +706,26 @@ footer{
 
 .product-btn{
     padding: 2rem 5rem;
-    border: 1px solid #D61C1C;
-    border-radius: 1rem;
+    border: 2px solid #009578;
+    background-color: ;
+    color:#009578 ;
+    border-radius: 4rem;
     margin: 5rem auto;
     display: block;
     
 }
+.product-btn:hover{
+    background-color: #009578;
+    color: white;
 
-.product-btn a {
-    text-decoration: none;
-    color: #D61C1C;
-    text-align: center;
 }
+
+a{
+    text-decoration: none
+}
+
+
+
 
 @media (min-width: 830px) {
     .how-it-works{

@@ -25,14 +25,14 @@
             </a>
         </div>
         <section class="order-container container">
-            <h2>Order Captions</h2>
+            <h2>Order</h2>
             <div class="progress">
                 <div class="progress__fill"></div>
                 <span class="progress__text">0%</span>
             </div>
             <h3>Where are your videos?</h3>
-            <div class="drag-and-drop">
-                <div class="upload-files">
+            <div class="drag-and-drop" >
+                <div class="upload-files" id="orderContainer">
                     <div class="icon-upload-files"></div>
                     <p>Upload files from your computer or drag and drop</p>
                     <form action="" class="form-order">
@@ -43,19 +43,19 @@
                     </form>
                 </div>
 
-
+                <form action="" id="signInForm">
                     <div class="wrapper h-hide signIn" id="signIn">
                         <div class="title">SIGN IN</div>
                         <div class="checkout_form">
                             <div class="input_item">
-                                <input type="text" placeholder="Name">
+                                <input type="text" placeholder="Name" required>
                             </div>
                             <div class="input_item">
-                                <input type="email" placeholder="youremail@gmail.com" data-mask=>
+                                <input type="email" placeholder="youremail@gmail.com" required data-mask=>
                             </div>
                             <div class="input_item video-time">
                                 <p>How long is your video?</p>
-                                <input type="number" placeholder="10min" id="videoDuration" data-mask=>
+                                <input type="number" placeholder="10min" id="videoDuration" required data-mask=>
                             </div>
 
                             <div class="input_item video-time">
@@ -65,30 +65,32 @@
                                 
 
                             <div class="btn" id="checkoutBtn">
-                                <a href="#">checkout</a>
+                                <input type="submit" value="checkout"><a href="#">checkout</a>
                             </div>
                         </div>
                     </div>
+                </form>
 
+                <form action="" id="myForm">
                     <div class="wrapper h-hide" id="checkout">
                         <div class="title">Checkout form</div>
                         <div class="checkout_form">
                             <div class="input_item">
-                                <input type="text" placeholder="Card Holder Name">
+                                <input type="text" placeholder="Card Holder Name" required>
                             </div>
                             <div class="input_item">
-                                <input type="text" placeholder="0000 0000 0000 0000" data-mask="0000 0000 0000 0000">
+                                <input type="text" placeholder="0000 0000 0000 0000" data-mask="0000 0000 0000 0000" required pattern="\d{12}" title="12 digit numbers">
                             </div>
                             <div class="input_grp">
                                 <div class="input_item">
-                                    <input type="text" placeholder="MM / YY" data-mask="00 / 00">
+                                    <input type="text" placeholder="MM / YY" data-mask="00 / 00" required pattern="\d{2}\W\d{2}" title="Required format is: 00/00">
                                 </div>
                                 <div class="input_item">
-                                    <input type="text" placeholder="* * *" data-mask="0 0 0">
+                                    <input type="text" placeholder="* * *" data-mask="0 0 0" required pattern="\d{3}" title="3 digit numbers">
                                 </div>
                             </div>
                             <div class="btn" id="payBtn">
-                                <a href="#">pay</a>
+                                <input type="submit" value="pay"><a href="#">pay</a>
                             </div>
                         </div>
                     </div>

@@ -23,6 +23,10 @@ const checkoutBtn = document.getElementById("checkoutBtn");
 const payBtn = document.getElementById("payBtn");
 const price = document.getElementById("price");
 const videoDuration = document.getElementById("videoDuration");
+const orderContainer = document.getElementById("orderContainer");
+const myForm = document.getElementById("myForm");
+const signInForm = document.getElementById("signInForm");
+
 document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
     const dropZoneElement = inputElement.closest(".drop-zone");
 
@@ -117,16 +121,33 @@ function updateProgressBar(progressBar, value) {
 }
 
 /* Order */
-checkoutBtn.addEventListener("click", function () {
+
+signInForm.addEventListener("submit", function(e) {
     signIn.classList.add("h-hide");
     checkout.classList.remove("h-hide");
     updateProgressBar(progressBar, 66)
 });
 
+myForm.addEventListener("submit", function(e){
+        const orderReceived = document.createElement("h3");
+        orderReceived.append("Order Received 🎉");
+        orderReceived.classList.add("align-text");
+        orderReceived.style.marginTop = "3rem";
+
+        signIn.classList.add("h-hide");
+        checkout.classList.add("h-hide");
+        updateProgressBar(progressBar, 100)
+        orderContainer.append(orderReceived);
+});
+
+
+
+checkoutBtn.addEventListener("click", function () {
+    
+});
+
 payBtn.addEventListener("click", function () {
-    signIn.classList.add("h-hide");
-    checkout.classList.add("h-hide");
-    updateProgressBar(progressBar, 100)
+    
 });
 
 videoDuration.addEventListener("input", function (e) {
@@ -171,6 +192,7 @@ const navSlide = () => {
 navSlide();
 
 
+/* FORM VALIDATION */
 
 
 
